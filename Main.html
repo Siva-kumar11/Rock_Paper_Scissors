@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rock Paper Scissors</title>
+<link rel="stylesheet" href="Main.css">
+</head>
+<body>
+<div class="container">
+    <form id="playerForm">
+        <label for="playerName">Enter player's name:*</label>
+        <input type="text" id="playerName" name="playerName" required>
+        <button id="startGameButton" type="button">Start Game</button>
+    </form>
+</div>
+<script>
+    // Add event listener for the "Start Game" button
+    document.getElementById('startGameButton').addEventListener('click', function () {
+        // Get the entered name
+        const playerName = document.getElementById('playerName').value.trim();
+
+        // Validate that the name is not empty
+        if (!playerName) {
+            alert("Please enter the player's name");
+            return;
+        }
+
+        // Store the name in localStorage for use on the next page
+        localStorage.setItem('playerName', playerName);
+
+        // Redirect to the Game page
+        window.location.href = 'Game.html';
+    });
+</script>
+</body>
+</html>
